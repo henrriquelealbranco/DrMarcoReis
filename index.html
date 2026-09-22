@@ -430,6 +430,7 @@
             min-height: 90vh;
             display: flex;
             align-items: center;
+            background: var(--navy-deep);
         }
 
         .hero-video-bg {
@@ -438,11 +439,12 @@
             left: 50%;
             min-width: 100%;
             min-height: 100%;
-            width: auto;
-            height: auto;
+            width: 100%;
+            height: 100%;
             transform: translate(-50%, -50%);
             object-fit: cover;
             z-index: 0;
+            pointer-events: none;
         }
 
         .hero-overlay {
@@ -811,17 +813,29 @@
 
         /* ========== MOBILE ========== */
         @media (max-width: 768px) {
-            /* Video -> static image fallback */
-            .hero-video-bg { display: none; }
+            /* Video background plays on mobile too */
+            .hero-video-bg {
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                min-width: 100%;
+                min-height: 100%;
+                width: 100%;
+                height: 100%;
+                transform: translate(-50%, -50%);
+                object-fit: cover;
+                z-index: 0;
+                pointer-events: none;
+            }
             .hero-overlay {
-                background: linear-gradient(180deg, rgba(10, 22, 40, 0.88) 0%, rgba(6, 14, 26, 0.78) 100%);
+                background: linear-gradient(180deg, rgba(10, 22, 40, 0.85) 0%, rgba(6, 14, 26, 0.76) 100%);
+                z-index: 1;
             }
             .hero {
                 min-height: 85vh;
                 padding: 120px 0 80px;
-                background-image: url('img/dr-marco-antonio-dos-reis.jpg');
-                background-size: cover;
-                background-position: center;
+                background: var(--navy-deep);
             }
 
             .container {
@@ -1074,7 +1088,7 @@
     </nav>
 
     <header class="hero">
-        <video class="hero-video-bg" autoplay muted loop playsinline poster="img/dr-marco-antonio-dos-reis.jpg">
+        <video class="hero-video-bg" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="img/hero-video-poster.jpg">
             <source src="img/hero-video.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
@@ -1334,6 +1348,31 @@
         document.querySelectorAll('.fade-in-up').forEach(element => {
             observer.observe(element);
         });
+
+        // Mobile & iOS Safari Autoplay Assurance
+        const heroVideo = document.querySelector('.hero-video-bg');
+        if (heroVideo) {
+            heroVideo.muted = true;
+            heroVideo.defaultMuted = true;
+            const ensureVideoPlays = () => {
+                const playPromise = heroVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {
+                        // If iOS low power mode blocks autoplay, start on first touch/interaction
+                        const startOnInteraction = () => {
+                            heroVideo.muted = true;
+                            heroVideo.play();
+                        };
+                        ['touchstart', 'touchend', 'click', 'scroll'].forEach(evt => {
+                            window.addEventListener(evt, startOnInteraction, { once: true, passive: true });
+                        });
+                    });
+                }
+            };
+            ensureVideoPlays();
+            document.addEventListener('DOMContentLoaded', ensureVideoPlays);
+            window.addEventListener('load', ensureVideoPlays);
+        }
     </script>
 </body>
 </html>
