@@ -24,4 +24,4 @@ Landing page médica de alto padrão e luxo para o **Dr. Marco Antonio dos Reis*
 - **Endereço:** Av. Manoel Ribas, 6972 — Policlínica Santa Saúde — Santa Felicidade, Curitiba/PR
 - **Telefone:** (41) 3273-6456
 - **WhatsApp:** (41) 99994-0807
-- **Horário:** Segunda a Sexta, das 8h às 20h
+- **Horário:** Segunda a Sexta, das 8h às 17h
