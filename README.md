@@ -1,6 +1,6 @@
-# Dr. Marco Antonio dos Reis — Oftalmologia
+# Dr Marco Antônio dos Reis / Oftalmologia em Santa Felicidade
 
-Landing page médica de alto padrão e luxo para o **Dr. Marco Antonio dos Reis**, médico oftalmologista graduado pela UFPR com décadas de atuação no nobre bairro de **Santa Felicidade**, em Curitiba/PR, na **Policlínica Santa Saúde**.
+Landing page médica de alto padrão e luxo para o **Dr. Marco Antônio dos Reis**, médico oftalmologista graduado pela UFPR com décadas de atuação no nobre bairro de **Santa Felicidade**, em Curitiba/PR, na **Policlínica Santa Saúde**.
 
 ---
 
@@ -22,6 +22,5 @@ Landing page médica de alto padrão e luxo para o **Dr. Marco Antonio dos Reis*
 ## 📍 Informações de Contato
 
 - **Endereço:** Av. Manoel Ribas, 6972 — Policlínica Santa Saúde — Santa Felicidade, Curitiba/PR
-- **Telefone:** (41) 3273-6456
-- **WhatsApp:** (41) 99994-0807
+- **Telefone / WhatsApp:** (41) 3018-8411
 - **Horário:** Segunda a Sexta, das 8h às 17h
